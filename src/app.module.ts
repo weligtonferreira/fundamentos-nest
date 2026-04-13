@@ -20,7 +20,7 @@ import { UserService } from './user/user.service';
       port: Number(process.env.DB_PORT),
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
-      synchronize: false,
+      synchronize: true,
       migrationsRun: true,
       entities: [`${__dirname}/**/*.entity{.js,.ts}`],
       migrations: [`${__dirname}/database/migrations/{.ts,*.js}`],
