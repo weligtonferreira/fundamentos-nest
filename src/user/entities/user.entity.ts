@@ -21,7 +21,7 @@ export class User {
   password: string;
 
   @Column({ nullable: false })
-  curse: string;
+  course: string;
 
   @Column({ nullable: false })
   semester: number;
