@@ -10,7 +10,7 @@ export class CreateUserDto {
   email: string;
 
   @IsString()
-  @Min(8)
+  @MinLength(8)
   password: string;
 
   @IsString()
@@ -20,6 +20,6 @@ export class CreateUserDto {
   semester: number;
 
   @IsString()
-  @Min(11)
+  @MinLength(11)
   phone: string;
 }
