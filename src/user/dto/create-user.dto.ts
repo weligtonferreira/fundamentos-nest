@@ -14,7 +14,7 @@ export class CreateUserDto {
   password: string;
 
   @IsString()
-  curse: string;
+  course: string;
 
   @IsNumber()
   semester: number;
