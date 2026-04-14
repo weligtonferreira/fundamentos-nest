@@ -1,6 +1,7 @@
 // DTO -> Data Transfer Object
 
-import { IsEmail, IsNumber, IsString, Min } from 'class-validator';
+import { Type } from 'class-transformer';
+import { IsEmail, IsNumber, IsString, MinLength } from 'class-validator';
 
 export class CreateUserDto {
   @IsString()
@@ -16,6 +17,7 @@ export class CreateUserDto {
   @IsString()
   course: string;
 
+  @Type(() => Number)
   @IsNumber()
   semester: number;
 
