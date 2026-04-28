@@ -17,6 +17,8 @@ export class UserService {
     return this.userRepository.save(createUserDto);
   }
 
+  // async e await são executados por padrão pelo nest
+  // quando se usa diretamente o return
   findAll() {
     return this.userRepository.find();
   }
