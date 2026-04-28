@@ -7,6 +7,9 @@ import {
   Delete,
   ValidationPipe,
   UsePipes,
+  HttpCode,
+  HttpStatus,
+  Put,
 } from '@nestjs/common';
 
 import { UserService } from './user.service';
@@ -39,6 +42,7 @@ export class UserController {
   }
 
   @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
   remove(@Param('id') id: string) {
     return this.userService.remove(id);
   }
