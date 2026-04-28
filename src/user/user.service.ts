@@ -35,7 +35,8 @@ export class UserService {
     return this.userRepository.update(id, updateUserDto);
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} user`;
+  async remove(id: string) {
+    const user = await this.findOne(id);
+    await this.userRepository.remove(user);
   }
 }
