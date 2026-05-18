@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
+import * as bcrypt from 'bcrypt';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
@@ -14,7 +15,15 @@ export class UserService {
   ) {}
 
   create(createUserDto: CreateUserDto) {
-    return this.userRepository.save(createUserDto);
+    const salts = 8;
+    const encrytedPassword = bcrypt.hashSync(createUserDto.password, salts);
+
+    const user = {
+      ...createUserDto,
+      password: encrytedPassword,
+    };
+
+    return this.userRepository.save(user);
   }
 
   // async e await são executados por padrão pelo nest
