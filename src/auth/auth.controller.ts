@@ -11,6 +11,7 @@ export class AuthController {
   @Public()
   @Post('login')
   @HttpCode(HttpStatus.OK)
+  @Public()
   async signIn(@Body() signInDto: SignInDto) {
     return await this.authService.signIn(signInDto.email, signInDto.password);
   }
